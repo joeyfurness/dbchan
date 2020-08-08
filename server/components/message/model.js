@@ -12,7 +12,8 @@ const messageSchema = new mongoose.Schema({
     type: String
   },
   user: {
-    type: String
+    type: String,
+    default: 'anonymous'
   },
   thread: {
     type: mongoose.Schema.Types.ObjectId,
