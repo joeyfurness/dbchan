@@ -1,4 +1,4 @@
-import service from './service'
+const service = require('./service')
 
 const createOne = async function (req, res){ 
   const newMessage =  {
@@ -13,4 +13,4 @@ const createOne = async function (req, res){
   res.status(200).json(result)
 }
 
-export default createOne;
+module.exports = createOne;

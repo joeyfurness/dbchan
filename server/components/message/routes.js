@@ -1,5 +1,5 @@
-import { Router } from 'express'
-import controllers from './controller'
+const { Router } = require('express')
+const controllers = require('./controller')
 
 const router = Router()
 
@@ -10,4 +10,4 @@ router
   .route('/:id')
   .post(controllers.createOne)
 
-  export default router
+module.exports = router
