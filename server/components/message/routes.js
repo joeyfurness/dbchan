@@ -3,11 +3,11 @@ const controllers = require('./controller')
 
 const router = Router()
 
-//ID being passed to this route is a Thread ID
+//ID being passed to this route is a message ID
 
 //api/message/:id
 router
   .route('/:id')
-  .post(controllers.createOne)
+  .get(controllers.getOne)
 
 module.exports = router
