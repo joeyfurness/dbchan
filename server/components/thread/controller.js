@@ -8,7 +8,7 @@ const getOne = async (req, res) => {
 
 const createOne = async (req, res) => {
   const data = {
-    threadId: req.params.id,
+    thread: req.params.id,
     body: req.body.body,
     imageUrl: req.body.imageUrl,
     user: req.body.user,
