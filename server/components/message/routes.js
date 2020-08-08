@@ -9,3 +9,5 @@ const router = Router()
 router
   .route('/:id')
   .post(controllers.createOne)
+
+  export default router
