@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 /*
 FIELDS
-[ ] Id - int/ID
-[ ] Messages - array of Message_Ids
-[ ] Board_Id - int / ID
-[ ] Date - string / date Object
+[x] Id - int/ID
+[x] Messages - array of Message_Ids
+[x] Board_Id - int / ID
+[x] Date - string / date Object
 */
 
 const threadSchema = new mongoose.Schema({
