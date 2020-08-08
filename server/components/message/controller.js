@@ -1,16 +1,14 @@
-const service = require('./service')
+const services = require('./service')
 
-const createOne = async function (req, res){ 
-  const newMessage =  {
-    threadId: req.params.id,
-    newMessage: {
-      body: req.body.body,
-      imageUrl: req.body.imageUrl,
-      user: req.body.user
-    }
+const getOne = async function (req, res){
+  const messageId = req.params.id
+  try{
+    const message = await services.getMessageById(messageId)
+    res.status(200).json(message)
   }
-  const result = await service.createMessage(newMessage)
-  res.status(200).json(result)
+  catch(error){
+    res.status(404).send(error)
+  }
 }
 
 module.exports = createOne;
