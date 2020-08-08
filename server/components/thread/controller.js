@@ -8,13 +8,17 @@ const getOne = async (req, res) => {
 
 const createOne = async (req, res) => {
   const data = {
-    boardId: req.params.id,
+    threadId: req.params.id,
     body: req.body.body,
     imageUrl: req.body.imageUrl,
     user: req.body.user,
   };
-  const thread = await services.createThread(data);
-  res.status(200).json(thread);
+  try {
+    const thread = await services.createMessageAndAddToThread(data);
+    res.status(200).json(thread);
+  } catch {
+    res.status(400).end();
+  }
 };
 
 module.exports = {
