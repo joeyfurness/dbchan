@@ -1,4 +1,4 @@
-import { mongoose } from 'mongoose';
+const mongoose = require('mongoose');
 
 const messageSchema = new mongoose.Schema({
   body: {
@@ -12,7 +12,8 @@ const messageSchema = new mongoose.Schema({
     type: String
   },
   user: {
-    type: String
+    type: String,
+    default: 'anonymous'
   },
   thread: {
     type: mongoose.Schema.Types.ObjectId,
