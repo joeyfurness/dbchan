@@ -6,5 +6,5 @@ const createMessage = async function(newMessage){
 }
 
 const getMessageById = async function(messageId) {
-  return Message.findById(messageId).populate().exec()
+  return Message.findById(messageId).exec()
 }
