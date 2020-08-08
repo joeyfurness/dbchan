@@ -8,9 +8,6 @@ const messageSchema = new mongoose.Schema({
   imageUrl: {
     type: String
   },
-  ipAddr: {
-    type: String
-  },
   user: {
     type: String,
     default: 'anonymous'
