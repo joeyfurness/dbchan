@@ -3,7 +3,7 @@ const controllers = require('./controller');
 
 const router = Router();
 
-// :id is board id
+// :id is a board id
 router
   .route('/:id')
   .get(controllers.getOne)
