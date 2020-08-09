@@ -22,7 +22,7 @@ const createThread = async (req, res) => {
   try {
     const thread = await threadServices.createThread(thread);
     newMessage.thread = thread.id
-    const newMessage = await threadServiecs.createMessageAndAddToThread(message)
+    const message = await threadServiecs.createMessageAndAddToThread(newMessage)
     res.status(200).json(thread)
   }
   catch {
