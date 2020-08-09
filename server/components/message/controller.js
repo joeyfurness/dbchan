@@ -11,4 +11,4 @@ const getOne = async function (req, res){
   }
 }
 
-module.exports = createOne;
+module.exports = getOne;
