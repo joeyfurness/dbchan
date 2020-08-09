@@ -8,3 +8,8 @@ const createBoard = async (newBoard) => {
 const getBoardById = async (boardId) => {
   return Board.findById(boardId)
 }
+
+module.exports = {
+  createBoard,
+  getBoardById
+}

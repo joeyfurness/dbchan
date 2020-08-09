@@ -22,7 +22,7 @@ const createThread = async (req, res) => {
   try {
     const thread = await threadServices.createThread(thread);
     newMessage.thread = thread.id
-    const message = await threadServiecs.createMessageAndAddToThread(newMessage)
+    const message = await threadServices.createMessageAndAddToThread(newMessage)
     res.status(200).json(thread)
   }
   catch {
@@ -38,4 +38,10 @@ const createOne = async (req, res) => {
   }
   const board = await boardServices.createBoard(data);
   res.status(200).json(board)
+}
+
+module.exports = {
+  getOne,
+  createThread,
+  createOne
 }
