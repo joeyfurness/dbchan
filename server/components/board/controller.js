@@ -1,4 +1,4 @@
-const boardServices = require('./services')
+const boardServices = require('./service')
 const threadServices = require('../thread/service')
 
 const getOne = async (req, res) => {
@@ -20,12 +20,14 @@ const createThread = async (req, res) => {
   }
 
   try {
-    const thread = await threadServices.createThread(thread);
+    const thread = await threadServices.createThread(newThread);
     newMessage.thread = thread.id
     const message = await threadServices.createMessageAndAddToThread(newMessage)
+    // createThreadAndAddToBoard
     res.status(200).json(thread)
   }
-  catch {
+  catch (err) {
+    console.error(err);
     res.status(400).end()
   }
 }

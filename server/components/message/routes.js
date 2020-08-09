@@ -1,13 +1,13 @@
 const { Router } = require('express')
 const controllers = require('./controller')
 
-const router = Router()
+const router = Router();
 
 //ID being passed to this route is a message ID
 
 //api/message/:id
 router
   .route('/:id')
-  .get(controllers.getOne)
+  .get(controllers.getOne);
 
 module.exports = router

@@ -13,3 +13,5 @@ router
 router
   .route('/')
   .post(controllers.createOne)
+
+module.exports = router;

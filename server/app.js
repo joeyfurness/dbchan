@@ -19,7 +19,7 @@ app.use(urlencoded({ extended: true})); // Idk exactly what this does but it fix
 app.use(morgan('dev')); // Logs HTTP to the console
 
 app.use('/message', messageRouter);
-app.use('/thread/', threadRouter);
+app.use('/thread', threadRouter);
 app.use('/board', boardRouter);
 
 app.get('/', (req, res) => {

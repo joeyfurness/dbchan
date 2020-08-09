@@ -2,7 +2,7 @@ const Board = require('./model')
 const mongoose = require('mongoose')
 
 const createBoard = async (newBoard) => {
-  return Board.create(data)
+  return Board.create(newBoard)
 }
 
 const getBoardById = async (boardId) => {

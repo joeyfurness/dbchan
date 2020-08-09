@@ -14,4 +14,4 @@ const boardSchema = new mongoose.Schema({
   }
 }, {timestamps: true});
 
-module.exports = boardSchema.model('board', boardSchema);
+module.exports = mongoose.model('board', boardSchema);
