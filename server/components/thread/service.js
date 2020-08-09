@@ -10,7 +10,12 @@ const createMessageAndAddToThread = async (data) => {
   return Thread.findByIdAndUpdate(data.thread, { $push: {messages: message}}, {new: true}).exec();
 }
 
+const createThread = (data) => {
+  return Thread.create(data);
+}
+
 module.exports = {
   getThreadById,
   createMessageAndAddToThread,
+  createThread,
 };
