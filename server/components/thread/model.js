@@ -17,7 +17,6 @@ const threadSchema = new mongoose.Schema({
   board: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: 'board',
-    required: true,
   }
 }, {timestamps: true});
 
