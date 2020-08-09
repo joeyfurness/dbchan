@@ -1,5 +1,5 @@
-const Message = require('./message')
-const mongoose = require('mongoose')
+const Message = require('./model');
+const mongoose = require('mongoose');
 
 const createMessage = async function(newMessage){
   return Message.create(newMessage);
