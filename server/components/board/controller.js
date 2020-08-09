@@ -3,7 +3,7 @@ const threadServices = require('../thread/service')
 
 const getOne = async (req, res) => {
   const boardId = req.params.id
-  const board = await services.getBoardById(boardId)
+  const board = await boardServices.getBoardById(boardId)
   res.status(200).json(board)
 }
 
