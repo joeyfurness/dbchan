@@ -6,9 +6,9 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const db = require('./utils/connect');
-const messageRouter = require('./components/message/routes');
-const threadRouter = require('./components/thread/routes');
-const boardRouter = require('./components/board/routes');
+const messageRouter = require('./components/message/message.routes');
+const threadRouter = require('./components/thread/thread.routes');
+const boardRouter = require('./components/board/board.routes');
 
 const app = express();
 app.disable('x-powered-by');
