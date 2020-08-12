@@ -6,12 +6,12 @@ const router = Router()
 // /api/board/:id
 router
   .route('/:id') //board ID
-  .get(controllers.getOne)
+  .get(controllers.getThreads)
   .post(controllers.createThread)
 
 // /api/board/
 router
   .route('/')
-  .post(controllers.createOne)
+  .post(controllers.createBoard)
 
 module.exports = router;
