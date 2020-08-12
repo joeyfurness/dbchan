@@ -1,15 +1,19 @@
 const Message = require('./message.model');
-const mongoose = require('mongoose');
 
-const createMessage = async function(newMessage){
+const createMessage = function(newMessage){
   return Message.create(newMessage);
 }
 
-const getMessageById = async function(messageId) {
+const getMessageById = function(messageId) {
   return Message.findById(messageId).exec()
+}
+
+const getMessagesByThreadId = function(threadId) {
+  return Message.find({thread: threadId}).exec();
 }
 
 module.exports = {
   createMessage,
-  getMessageById
+  getMessageById,
+  getMessagesByThreadId,
 }
