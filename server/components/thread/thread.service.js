@@ -5,13 +5,8 @@ const getThreadById = (id) => {
   return Thread.findById(id).exec();
 }
 
-const createMessageAndAddToThread = async (data) => {
-  const message = await messageServices.createMessage(data);
-  return Thread.findByIdAndUpdate(data.thread, { $push: {messages: message}}, {new: true}).exec();
-}
-
-const addMessageToThread = (id, message) => {
-  return Thread.findByIdAndUpdate(id, {$push: {messages: message}}, {new: true}).exec();
+const getThreadsByBoardId = (boardId) => {
+  return Thread.find({board: boardId}).exec();
 }
 
 const createThread = (data) => {
@@ -23,4 +18,5 @@ module.exports = {
   createMessageAndAddToThread,
   addMessageToThread,
   createThread,
+  getThreadsByBoardId,
 };

@@ -9,15 +9,10 @@ FIELDS
 */
 
 const threadSchema = new mongoose.Schema({
-  messages: {
-    type: [mongoose.SchemaTypes.ObjectId],
-    ref: 'message',
-    required: true,
-  },
   board: {
     type: mongoose.SchemaTypes.ObjectId,
     ref: 'board',
-  }
+  },
 }, {timestamps: true});
 
 module.exports = mongoose.model('thread', threadSchema);
