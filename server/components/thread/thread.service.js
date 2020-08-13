@@ -15,8 +15,6 @@ const createThread = (data) => {
 
 module.exports = {
   getThreadById,
-  createMessageAndAddToThread,
-  addMessageToThread,
   createThread,
   getThreadsByBoardId,
 };
