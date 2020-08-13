@@ -5,11 +5,14 @@ const messageServices = require('../message/message.service');
 const getThreads = async (req, res) => {
   const boardId = req.params.id;
   const threads = await threadServices.getThreadsByBoardId(boardId);
-  const messages = [];
-  for (const thread of threads) {
-    messages.push(await messageServices.getMessagesByThreadId(thread._id));
-  }
-  res.status(200).json(messages);
+
+  const messagesAsPromises = threads.map(async (thread) => {
+    const messages = await messageServices.getMessagesByThreadId(thread.id);
+    return {thread: thread, messages: messages};
+  });
+  
+  const threadWithMessages = await Promise.all(messagesAsPromises);
+  res.status(200).json(threadWithMessages);
 }
 
 // Create a new Thread and add a Message to it, then add to Board
