@@ -48,8 +48,12 @@ const createBoard = async (req, res) => {
     name: req.body.name,
     category: req.body.category
   }
-  const board = await boardServices.createBoard(data);
-  res.status(200).json(board)
+  try {
+    const board = await boardServices.createBoard(data);
+    res.status(200).json(board);
+  } catch {
+    res.status(400).end();
+  }
 }
 
 module.exports = {
