@@ -4,15 +4,18 @@ const messageServices = require('../message/message.service');
 
 const getThreads = async (req, res) => {
   const boardId = req.params.id;
-  const threads = await threadServices.getThreadsByBoardId(boardId);
+  try{
+    const threads = await threadServices.getThreadsByBoardId(boardId);
+    const messagesAsPromises = threads.map(async (thread) => {
+      const messages = await messageServices.getMessagesByThreadId(thread.id);
+      return {thread: thread, messages: messages};
+    });
+    const threadWithMessages = await Promise.all(messagesAsPromises);
 
-  const messagesAsPromises = threads.map(async (thread) => {
-    const messages = await messageServices.getMessagesByThreadId(thread.id);
-    return {thread: thread, messages: messages};
-  });
-  
-  const threadWithMessages = await Promise.all(messagesAsPromises);
-  res.status(200).json(threadWithMessages);
+    res.status(200).json(threadWithMessages);
+  } catch {
+    res.status(400).end();
+  }
 }
 
 // Create a new Thread and add a Message to it, then add to Board
