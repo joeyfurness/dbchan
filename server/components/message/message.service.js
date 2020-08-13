@@ -9,7 +9,7 @@ const getMessageById = function(messageId) {
 }
 
 const getMessagesByThreadId = function(threadId) {
-  return Message.find({thread: threadId}).exec();
+  return Message.find({thread: threadId}).sort('createdAt').exec();
 }
 
 module.exports = {
